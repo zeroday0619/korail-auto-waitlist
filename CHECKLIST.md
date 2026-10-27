@@ -543,3 +543,10 @@
 - 완료한 검증만 `[x]`로 표시합니다.
 - 외부 서비스나 실기기에서 확인하지 않은 항목은 운영 확인으로 남깁니다.
 - 기능, 상태, 환경변수, 운영 절차 또는 안전 경계가 바뀌면 관련 문서도 함께 고칩니다.
+
+
+## HTTPX2 마이그레이션
+
+- [x] API 소유 HTTP client·transport·예외·공개 모듈 속성과 테스트를 HTTPX2 이름으로 통일
+- [x] HTTPX2·HTTPCore2 로그를 기존 transport 로그 차단 정책에 포함하고 회귀 테스트 추가
+- [x] Python 3.12.12·HTTPX2 2.16.0에서 관련 회귀 테스트 1,145건, strict mypy 171개 파일, Ruff 0.12.12 E/F/I, format ratchet, lock 일관성과 diff 공백 검사 통과

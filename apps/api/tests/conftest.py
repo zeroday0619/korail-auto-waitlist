@@ -4,7 +4,7 @@ from datetime import UTC, datetime, timedelta
 
 import pytest
 import pytest_asyncio
-from httpx import ASGITransport, AsyncClient
+from httpx2 import ASGITransport, AsyncClient
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 from rail_waitlist.auth import CSRF_COOKIE, SESSION_COOKIE, keyed_hash, sign_session_token
@@ -30,9 +30,7 @@ def isolate_test_origin():
         "korail_seat_monitoring_enabled",
         "korail_reservation_once_enabled",
     )
-    previous_feature_flags = {
-        name: getattr(settings, name) for name in feature_flag_names
-    }
+    previous_feature_flags = {name: getattr(settings, name) for name in feature_flag_names}
     settings.auth_allowed_origins = ["http://localhost:3000"]
     for name in feature_flag_names:
         setattr(settings, name, False)
